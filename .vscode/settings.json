@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "tcpip_config.h": "c",
+        "ip_database.h": "c",
+        "mcc.h": "c"
+    }
+}

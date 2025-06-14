@@ -1,0 +1,1445 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"51 mcc_generated_files/TCPIPLibrary/mac_address.h
+[; ;mcc_generated_files/TCPIPLibrary/mac_address.h: 51:     struct { uint8_t byte1,byte2,byte3,byte4,byte5,byte6; } s;
+[s S27 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S27 . byte1 byte2 byte3 byte4 byte5 byte6 ]
+"49
+[; ;mcc_generated_files/TCPIPLibrary/mac_address.h: 49: {
+[u S26 `uc -> 6 `i `S27 1 ]
+[n S26 . mac_array s ]
+"98 mcc_generated_files/TCPIPLibrary/dhcp_client.c
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 98: {
+[s S36 `ul 1 `ul 1 `ul 1 `ul -> 2 `i `ul -> 2 `i `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 ]
+[n S36 . dhcpIPAddress subnetMask routerAddress dnsAddress ntpAddress gatewayAddress xidValue t1 t2 dhcpServerIdentifier ]
+"120
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 120: dhcp_state_t dhcpState = {SELECTING,INIT_TIMER};
+[c E1253 0 1 2 3 .. ]
+[n E1253 . SELECTING REQUESTING RENEWLEASE BOUND  ]
+[c E1259 0 1 2 3 .. ]
+[n E1259 . INIT_TIMER WAITFORTIMER STARTDISCOVER STARTREQUEST  ]
+"113
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 113: {
+[s S37 `E1253 1 `E1259 1 ]
+[n S37 . rxClientState tmrClientState ]
+"40 mcc_generated_files/TCPIPLibrary/ip_database.h
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.h: 40:  typedef struct {
+[s S35 `ul 1 `ul -> 2 `i `ul 1 `ul 1 `ul 1 `ul -> 2 `i `ul 1 ]
+[n S35 . ipv4_myAddress ipv4_dns ipv4_subnetMask ipv4_router ipv4_gateway ipv4_ntpAddress ipv4_tftpAddress ]
+"51
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.h: 51: extern ip_db_info_t ip_database_info;
+[v _ip_database_info `S35 ~T0 @X0 0 e ]
+"50 mcc_generated_files/TCPIPLibrary/lfsr.h
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.h: 50: lfsr_t lfsrWithSeed(uint8_t lfsrSeed);
+[v _lfsrWithSeed `(uc ~T0 @X0 0 ef1`uc ]
+"136 mcc_generated_files/TCPIPLibrary/dhcp_client.c
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 136:     return sendRequest(DHCP_DISCOVER);
+[c E1236 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 .. ]
+[n E1236 . DHCP_DISCOVER DHCP_OFFER DHCP_REQUEST DHCP_DECLINE DHCP_ACK DHCP_NACK DHCP_RELEASE DHCP_INFORM DHCP_FORCERENEW DHCP_LEASEQUERY DHCP_LEASEUNASSIGNED DHCP_LEASEUNKNOWN DHCP_LEASEACTIVE DHCP_BULKLEASEQUERY DHCP_LEASEQUERYDONE  ]
+"124
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 124: _Bool sendRequest(dhcp_type type);
+[v _sendRequest `(a ~T0 @X0 0 ef1`E1236 ]
+"153
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 153:     error_msg started;
+[c E981 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 .. ]
+[n E981 . ERROR SUCCESS LINK_NOT_FOUND BUFFER_BUSY TX_LOGIC_NOT_IDLE MAC_NOT_FOUND IP_WRONG_VERSION IPV4_CHECKSUM_FAILS DEST_IP_NOT_MATCHED ICMP_CHECKSUM_FAILS UDP_CHECKSUM_FAILS TCP_CHECKSUM_FAILS DMA_TIMEOUT PORT_NOT_AVAILABLE ARP_IP_NOT_MATCHED EAPoL_PACKET_FAILURE INCORRECT_IPV4_HLEN IPV4_NO_OPTIONS TX_QUEUED IPV6_CHECKSUM_FAILS IPV6_LOCAL_ADDR_RESOLVE IPV6_LOCAL_ADDR_INVALID NO_GATEWAY ADDRESS_RESOLUTION GLOBAL_DESTINATION ARP_WRONG_HARDWARE_ADDR_TYPE ARP_WRONG_PROTOCOL_TYPE ARP_WRONG_HARDWARE_ADDR_LEN ARP_WRONG_PROTOCOL_LEN  ]
+"82 mcc_generated_files/TCPIPLibrary/udpv4.h
+[; ;mcc_generated_files/TCPIPLibrary/udpv4.h: 82: error_msg UDP_Start(uint32_t destIP, uint16_t srcPort, uint16_t dstPort);
+[v _UDP_Start `(E981 ~T0 @X0 0 ef3`ul`us`us ]
+"131 mcc_generated_files/TCPIPLibrary/ethernet_driver.h
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 131: void ETH_Write32(uint32_t);
+[v _ETH_Write32 `(v ~T0 @X0 0 ef1`ul ]
+"127
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 127: uint16_t ETH_WriteBlock(const char *, uint16_t);
+[v _ETH_WriteBlock `(us ~T0 @X0 0 ef2`*Cuc`us ]
+"61 mcc_generated_files/TCPIPLibrary/mac_address.h
+[; ;mcc_generated_files/TCPIPLibrary/mac_address.h: 61: extern mac48Address_t hostMacAddress;
+[v _hostMacAddress `S26 ~T0 @X0 0 e ]
+"98 mcc_generated_files/TCPIPLibrary/dhcp_client.h
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.h: 98: void DHCP_WriteZeros(uint16_t length);
+[v _DHCP_WriteZeros `(v ~T0 @X0 0 ef1`us ]
+"128 mcc_generated_files/TCPIPLibrary/ethernet_driver.h
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 128: void ETH_Write8(uint8_t);
+[v _ETH_Write8 `(v ~T0 @X0 0 ef1`uc ]
+"54 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h: 54: size_t strlen (const char *);
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
+"126 mcc_generated_files/TCPIPLibrary/ethernet_driver.h
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 126: uint16_t ETH_WriteString(const char *string);
+[v _ETH_WriteString `(us ~T0 @X0 0 ef1`*Cuc ]
+"129
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 129: void ETH_Write16(uint16_t);
+[v _ETH_Write16 `(v ~T0 @X0 0 ef1`us ]
+"83 mcc_generated_files/TCPIPLibrary/udpv4.h
+[; ;mcc_generated_files/TCPIPLibrary/udpv4.h: 83: error_msg UDP_Send(void);
+[v _UDP_Send `(E981 ~T0 @X0 0 ef ]
+"139 mcc_generated_files/TCPIPLibrary/ethernet_driver.h
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 139: void ETH_GetMAC(uint8_t *);
+[v _ETH_GetMAC `(v ~T0 @X0 0 ef1`*uc ]
+"55 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/time.h
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/time.h: 55: time_t time (time_t *);
+[v _time `(ul ~T0 @X0 0 ef1`*ul ]
+"157 mcc_generated_files/TCPIPLibrary/ethernet_driver.h
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 157: _Bool ETH_CheckLinkUp(void);
+[v _ETH_CheckLinkUp `(a ~T0 @X0 0 ef ]
+"117
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 117: uint16_t ETH_Read16(void);
+[v _ETH_Read16 `(us ~T0 @X0 0 ef ]
+"116
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 116: uint8_t ETH_Read8(void);
+[v _ETH_Read8 `(uc ~T0 @X0 0 ef ]
+"119
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 119: uint32_t ETH_Read32(void);
+[v _ETH_Read32 `(ul ~T0 @X0 0 ef ]
+"115
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 115: uint16_t ETH_ReadBlock(void*, uint16_t);
+[v _ETH_ReadBlock `(us ~T0 @X0 0 ef2`*v`us ]
+"30 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h: 30: int memcmp (const void *, const void *, size_t);
+[v _memcmp `(i ~T0 @X0 0 ef3`*Cv`*Cv`ui ]
+"60 mcc_generated_files/TCPIPLibrary/mac_address.h
+[; ;mcc_generated_files/TCPIPLibrary/mac_address.h: 60: extern const mac48Address_t broadcastMAC;
+[v _broadcastMAC `CS26 ~T0 @X0 0 e ]
+"120 mcc_generated_files/TCPIPLibrary/ethernet_driver.h
+[; ;mcc_generated_files/TCPIPLibrary/ethernet_driver.h: 120: void ETH_Dump(uint16_t);
+[v _ETH_Dump `(v ~T0 @X0 0 ef1`us ]
+"74 mcc_generated_files/TCPIPLibrary/dhcp_client.c
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 74:  static mac48Address_t ethMAC;
+[v _ethMAC `S26 ~T0 @X0 1 s ]
+"119
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 119: dhcp_data_t dhcpData = {0,0,0,0,0,0,0,0,0,10,3600,0};
+[v _dhcpData `S36 ~T0 @X0 1 e ]
+[i _dhcpData
+:U ..
+:U ..
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+:U ..
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+..
+:U ..
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+..
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+-> -> -> 10 `i `l `ul
+-> -> -> 3600 `i `l `ul
+-> -> -> 0 `i `l `ul
+..
+..
+]
+"120
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 120: dhcp_state_t dhcpState = {SELECTING,INIT_TIMER};
+[v _dhcpState `S37 ~T0 @X0 1 e ]
+[i _dhcpState
+:U ..
+:U ..
+. `E1253 0
+. `E1259 0
+..
+..
+]
+"122
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 122: const char dhcpName[] = "PIC18LF26K40_fixe";
+[v _dhcpName `Cuc ~T0 @X0 -> 18 `i e ]
+[i _dhcpName
+:U ..
+-> 80 `c
+-> 73 `c
+-> 67 `c
+-> 49 `c
+-> 56 `c
+-> 76 `c
+-> 70 `c
+-> 50 `c
+-> 54 `c
+-> 75 `c
+-> 52 `c
+-> 48 `c
+-> 95 `c
+-> 102 `c
+-> 105 `c
+-> 120 `c
+-> 101 `c
+-> 0 `c
+..
+]
+"126
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 126: _Bool sendDHCPDISCOVER(void)
+[v _sendDHCPDISCOVER `(a ~T0 @X0 1 ef ]
+"127
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 127: {
+{
+[e :U _sendDHCPDISCOVER ]
+[f ]
+"128
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 128:     dhcpData.dhcpIPAddress = (ip_database_info.ipv4_myAddress);
+[e = . _dhcpData 0 . _ip_database_info 0 ]
+"129
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 129:     dhcpData.xidValue = lfsrWithSeed(ethMAC.mac_array[2]);
+[e = . _dhcpData 6 -> ( _lfsrWithSeed (1 *U + &U . _ethMAC 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _ethMAC 0 `ui `ux `ul ]
+"130
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 130:     dhcpData.xidValue <<= 8;
+[e =<< . _dhcpData 6 -> -> 8 `i `ul ]
+"131
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 131:     dhcpData.xidValue |= lfsrWithSeed(ethMAC.mac_array[3]);
+[e =| . _dhcpData 6 -> ( _lfsrWithSeed (1 *U + &U . _ethMAC 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _ethMAC 0 `ui `ux `ul ]
+"132
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 132:     dhcpData.xidValue <<= 8;
+[e =<< . _dhcpData 6 -> -> 8 `i `ul ]
+"133
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 133:     dhcpData.xidValue |= lfsrWithSeed(ethMAC.mac_array[4]);
+[e =| . _dhcpData 6 -> ( _lfsrWithSeed (1 *U + &U . _ethMAC 0 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _ethMAC 0 `ui `ux `ul ]
+"134
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 134:     dhcpData.xidValue <<= 8;
+[e =<< . _dhcpData 6 -> -> 8 `i `ul ]
+"135
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 135:     dhcpData.xidValue |= lfsrWithSeed(ethMAC.mac_array[5]);
+[e =| . _dhcpData 6 -> ( _lfsrWithSeed (1 *U + &U . _ethMAC 0 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _ethMAC 0 `ui `ux `ul ]
+"136
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 136:     return sendRequest(DHCP_DISCOVER);
+[e ) ( _sendRequest (1 . `E1236 0 ]
+[e $UE 38  ]
+"137
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 137: }
+[e :UE 38 ]
+}
+"139
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 139: _Bool sendDHCPREQUEST(void)
+[v _sendDHCPREQUEST `(a ~T0 @X0 1 ef ]
+"140
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 140: {
+{
+[e :U _sendDHCPREQUEST ]
+[f ]
+"142
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 142:     return sendRequest(DHCP_REQUEST);
+[e ) ( _sendRequest (1 . `E1236 2 ]
+[e $UE 39  ]
+"143
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 143: }
+[e :UE 39 ]
+}
+"145
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 145: _Bool sendDHCPDECLINE(void)
+[v _sendDHCPDECLINE `(a ~T0 @X0 1 ef ]
+"146
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 146: {
+{
+[e :U _sendDHCPDECLINE ]
+[f ]
+"147
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 147:     return sendRequest(DHCP_DECLINE);
+[e ) ( _sendRequest (1 . `E1236 3 ]
+[e $UE 40  ]
+"148
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 148: }
+[e :UE 40 ]
+}
+"150
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 150: _Bool sendRequest(dhcp_type type)
+[v _sendRequest `(a ~T0 @X0 1 ef1`E1236 ]
+"151
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 151: {
+{
+[e :U _sendRequest ]
+"150
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 150: _Bool sendRequest(dhcp_type type)
+[v _type `E1236 ~T0 @X0 1 r1 ]
+"151
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 151: {
+[f ]
+"153
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 153:     error_msg started;
+[v _started `E981 ~T0 @X0 1 a ]
+"156
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 156:     started = UDP_Start(0xFFFFFFFF,68,67);
+[e = _started ( _UDP_Start (3 , , -> 4294967295 `ul -> -> 68 `i `us -> -> 67 `i `us ]
+"157
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 157:     if(started==SUCCESS)
+[e $ ! == -> _started `ui -> . `E981 1 `ui 42  ]
+"158
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 158:     {
+{
+"159
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 159:         ETH_Write32(0x01010600);
+[e ( _ETH_Write32 (1 -> -> 16844288 `l `ul ]
+"160
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 160:         ETH_Write32(dhcpData.xidValue);
+[e ( _ETH_Write32 (1 . _dhcpData 6 ]
+"161
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 161:         ETH_Write32(0x00008000);
+[e ( _ETH_Write32 (1 -> -> 32768 `ui `ul ]
+"162
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 162:         if(type == DHCP_REQUEST)
+[e $ ! == -> _type `ui -> . `E1236 2 `ui 43  ]
+"163
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 163:         {
+{
+"164
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 164:             ETH_Write32(0);
+[e ( _ETH_Write32 (1 -> -> -> 0 `i `l `ul ]
+"165
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 165:         }
+}
+[e $U 44  ]
+"166
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 166:         else
+[e :U 43 ]
+"167
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 167:         {
+{
+"168
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 168:             ETH_Write32(dhcpData.dhcpIPAddress);
+[e ( _ETH_Write32 (1 . _dhcpData 0 ]
+"169
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 169:         }
+}
+[e :U 44 ]
+"170
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 170:         ETH_Write32(0);
+[e ( _ETH_Write32 (1 -> -> -> 0 `i `l `ul ]
+"171
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 171:         ETH_Write32(0);
+[e ( _ETH_Write32 (1 -> -> -> 0 `i `l `ul ]
+"172
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 172:         ETH_Write32(0);
+[e ( _ETH_Write32 (1 -> -> -> 0 `i `l `ul ]
+"173
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 173:         ETH_WriteBlock((char *)&hostMacAddress,6);
+[e ( _ETH_WriteBlock (2 , -> -> &U _hostMacAddress `*uc `*Cuc -> -> 6 `i `us ]
+"174
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 174:         DHCP_WriteZeros(202);
+[e ( _DHCP_WriteZeros (1 -> -> 202 `i `us ]
+"175
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 175:         ETH_Write32(0x63825363);
+[e ( _ETH_Write32 (1 -> -> 1669485411 `l `ul ]
+"178
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 178:         ETH_Write8(12); ETH_Write8(strlen(dhcpName)); ETH_WriteString(dhcpName);
+[e ( _ETH_Write8 (1 -> -> 12 `i `uc ]
+[e ( _ETH_Write8 (1 -> ( _strlen (1 &U _dhcpName `uc ]
+[e ( _ETH_WriteString (1 &U _dhcpName ]
+"180
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 180:         ETH_Write8(42); ETH_Write8(4); ETH_Write32(0);
+[e ( _ETH_Write8 (1 -> -> 42 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 4 `i `uc ]
+[e ( _ETH_Write32 (1 -> -> -> 0 `i `l `ul ]
+"182
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 182:         ETH_Write8(53); ETH_Write8(1); ETH_Write8(type);
+[e ( _ETH_Write8 (1 -> -> 53 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 1 `i `uc ]
+[e ( _ETH_Write8 (1 -> _type `uc ]
+"183
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 183:         if(type == DHCP_REQUEST)
+[e $ ! == -> _type `ui -> . `E1236 2 `ui 45  ]
+"184
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 184:         {
+{
+"186
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 186:             ETH_Write8(50);ETH_Write8(4);ETH_Write32(dhcpData.dhcpIPAddress);
+[e ( _ETH_Write8 (1 -> -> 50 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 4 `i `uc ]
+[e ( _ETH_Write32 (1 . _dhcpData 0 ]
+"188
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 188:             ETH_Write8(54);ETH_Write8(4);ETH_Write32(dhcpData.dhcpServerIdentifier);
+[e ( _ETH_Write8 (1 -> -> 54 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 4 `i `uc ]
+[e ( _ETH_Write32 (1 . _dhcpData 9 ]
+"189
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 189:         }
+}
+[e :U 45 ]
+"191
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 191:         ETH_Write8(55); ETH_Write8(4); ETH_Write8(1); ETH_Write8(3); ETH_Write8(6); ETH_Write8(15);
+[e ( _ETH_Write8 (1 -> -> 55 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 4 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 1 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 3 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 6 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 15 `i `uc ]
+"193
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 193:         ETH_Write8(57); ETH_Write8(2); ETH_Write16(512);
+[e ( _ETH_Write8 (1 -> -> 57 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 2 `i `uc ]
+[e ( _ETH_Write16 (1 -> -> 512 `i `us ]
+"195
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 195:         ETH_Write8(61); ETH_Write8(7); ETH_Write8(1); ETH_WriteBlock((char *)&hostMacAddress,6);
+[e ( _ETH_Write8 (1 -> -> 61 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 7 `i `uc ]
+[e ( _ETH_Write8 (1 -> -> 1 `i `uc ]
+[e ( _ETH_WriteBlock (2 , -> -> &U _hostMacAddress `*uc `*Cuc -> -> 6 `i `us ]
+"196
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 196:         ETH_Write8(255);
+[e ( _ETH_Write8 (1 -> -> 255 `i `uc ]
+"201
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 201:         UDP_Send();
+[e ( _UDP_Send ..  ]
+"202
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 202:         return 1;
+[e ) -> -> 1 `i `a ]
+[e $UE 41  ]
+"203
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 203:     }
+}
+[e :U 42 ]
+"204
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 204:     return 0;
+[e ) -> -> 0 `i `a ]
+[e $UE 41  ]
+"205
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 205: }
+[e :UE 41 ]
+}
+"207
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 207: void DHCP_init(void)
+[v _DHCP_init `(v ~T0 @X0 1 ef ]
+"208
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 208: {
+{
+[e :U _DHCP_init ]
+[f ]
+"209
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 209:     ETH_GetMAC((uint8_t *) &ethMAC);
+[e ( _ETH_GetMAC (1 -> &U _ethMAC `*uc ]
+"210
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 210: }
+[e :UE 46 ]
+}
+"212
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 212: void DHCP_Manage(void)
+[v _DHCP_Manage `(v ~T0 @X0 1 ef ]
+"213
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 213: {
+{
+[e :U _DHCP_Manage ]
+[f ]
+"214
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 214:     static time_t managementTimer = 0;
+[v F1294 `ul ~T0 @X0 1 s managementTimer ]
+[i F1294
+-> -> -> 0 `i `l `ul
+]
+"215
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 215:     time_t now;
+[v _now `ul ~T0 @X0 1 a ]
+"216
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 216:     now = time(0);
+[e = _now ( _time (1 -> -> 0 `i `*ul ]
+"218
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 218:     if(managementTimer <= now)
+[e $ ! <= F1294 _now 48  ]
+"219
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 219:     {
+{
+"220
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 220:         switch(dhcpState.tmrClientState)
+[e $U 50  ]
+"221
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 221:         {
+{
+"222
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 222:             case INIT_TIMER:
+[e :U 51 ]
+"223
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 223:                 dhcpData.t1 = 4;
+[e = . _dhcpData 7 -> -> -> 4 `i `l `ul ]
+"224
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 224:                 dhcpData.t2 = 2;
+[e = . _dhcpData 8 -> -> -> 2 `i `l `ul ]
+"225
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 225:                 dhcpState.tmrClientState = WAITFORTIMER;
+[e = . _dhcpState 1 . `E1259 1 ]
+"226
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 226:                 break;
+[e $U 49  ]
+"227
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 227:             case WAITFORTIMER:
+[e :U 52 ]
+"228
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 228:                 if(!ETH_CheckLinkUp())
+[e $ ! ! != -> ( _ETH_CheckLinkUp ..  `i -> 0 `i 53  ]
+"229
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 229:                 {
+{
+"230
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 230:                     dhcpData.t1 = 2;
+[e = . _dhcpData 7 -> -> -> 2 `i `l `ul ]
+"231
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 231:                     dhcpData.t2 = 4;
+[e = . _dhcpData 8 -> -> -> 4 `i `l `ul ]
+"232
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 232:                 }
+}
+[e :U 53 ]
+"233
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 233:                 if(dhcpData.t1 == 2)
+[e $ ! == . _dhcpData 7 -> -> -> 2 `i `l `ul 54  ]
+"234
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 234:                 {
+{
+"235
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 235:                     do{ ip_database_info.ipv4_myAddress = 0; } while(0);
+[e :U 57 ]
+{
+[e = . _ip_database_info 0 -> -> -> 0 `i `l `ul ]
+}
+[e :U 56 ]
+"236
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 236:                     dhcpState.tmrClientState = STARTREQUEST;
+[e = . _dhcpState 1 . `E1259 3 ]
+"237
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 237:                 }
+}
+[e $U 58  ]
+"238
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 238:                 else dhcpData.t1 --;
+[e :U 54 ]
+[e -- . _dhcpData 7 -> -> -> 1 `i `l `ul ]
+[e :U 58 ]
+"239
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 239:                 if(dhcpData.t2 == 2)
+[e $ ! == . _dhcpData 8 -> -> -> 2 `i `l `ul 59  ]
+"240
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 240:                 {
+{
+"241
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 241:                     dhcpState.tmrClientState = STARTDISCOVER;
+[e = . _dhcpState 1 . `E1259 2 ]
+"242
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 242:                 }
+}
+[e $U 60  ]
+"243
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 243:                 else dhcpData.t2 --;
+[e :U 59 ]
+[e -- . _dhcpData 8 -> -> -> 1 `i `l `ul ]
+[e :U 60 ]
+"244
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 244:                 break;
+[e $U 49  ]
+"245
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 245:             case STARTDISCOVER:
+[e :U 61 ]
+"246
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 246:                 if(sendDHCPDISCOVER())
+[e $ ! != -> ( _sendDHCPDISCOVER ..  `i -> 0 `i 62  ]
+"247
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 247:                 {
+{
+"248
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 248:                     dhcpData.t2 = 10;
+[e = . _dhcpData 8 -> -> -> 10 `i `l `ul ]
+"249
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 249:                     dhcpData.t1 = 0x7fffffffL;
+[e = . _dhcpData 7 -> -> 2147483647 `l `ul ]
+"250
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 250:                     dhcpState.rxClientState = SELECTING;
+[e = . _dhcpState 0 . `E1253 0 ]
+"251
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 251:                     dhcpState.tmrClientState = WAITFORTIMER;
+[e = . _dhcpState 1 . `E1259 1 ]
+"252
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 252:                 }
+}
+[e :U 62 ]
+"253
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 253:                 break;
+[e $U 49  ]
+"254
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 254:             case STARTREQUEST:
+[e :U 63 ]
+"255
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 255:                 if(ETH_CheckLinkUp())
+[e $ ! != -> ( _ETH_CheckLinkUp ..  `i -> 0 `i 64  ]
+"256
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 256:                 {
+{
+"257
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 257:                     if(sendDHCPREQUEST())
+[e $ ! != -> ( _sendDHCPREQUEST ..  `i -> 0 `i 65  ]
+"258
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 258:                     {
+{
+"259
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 259:                             dhcpData.t1 = 15;
+[e = . _dhcpData 7 -> -> -> 15 `i `l `ul ]
+"260
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 260:                         if(dhcpState.rxClientState == BOUND )dhcpState.rxClientState = RENEWLEASE;
+[e $ ! == -> . _dhcpState 0 `ui -> . `E1253 3 `ui 66  ]
+[e = . _dhcpState 0 . `E1253 2 ]
+[e $U 67  ]
+"261
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 261:                         else dhcpState.rxClientState = REQUESTING;
+[e :U 66 ]
+[e = . _dhcpState 0 . `E1253 1 ]
+[e :U 67 ]
+"262
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 262:                         dhcpState.tmrClientState = WAITFORTIMER;
+[e = . _dhcpState 1 . `E1259 1 ]
+"263
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 263:                     }
+}
+[e :U 65 ]
+"264
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 264:                 }
+}
+[e :U 64 ]
+"265
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 265:                 break;
+[e $U 49  ]
+"266
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 266:             default:
+[e :U 68 ]
+"268
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 268:                 dhcpState.tmrClientState = INIT_TIMER;
+[e = . _dhcpState 1 . `E1259 0 ]
+"269
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 269:                 break;
+[e $U 49  ]
+"270
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 270:         }
+}
+[e $U 49  ]
+[e :U 50 ]
+[e [\ -> . _dhcpState 1 `ui , $ -> . `E1259 0 `ui 51
+ , $ -> . `E1259 1 `ui 52
+ , $ -> . `E1259 2 `ui 61
+ , $ -> . `E1259 3 `ui 63
+ 68 ]
+[e :U 49 ]
+"271
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 271:     }
+}
+[e :U 48 ]
+"272
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 272:     managementTimer = now + 1;
+[e = F1294 + _now -> -> -> 1 `i `l `ul ]
+"273
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 273: }
+[e :UE 47 ]
+}
+"275
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 275: void DHCP_Handler(int16_t length)
+[v _DHCP_Handler `(v ~T0 @X0 1 ef1`s ]
+"276
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 276: {
+{
+[e :U _DHCP_Handler ]
+"275
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 275: void DHCP_Handler(int16_t length)
+[v _length `s ~T0 @X0 1 r1 ]
+"276
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 276: {
+[f ]
+"278
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 278:     uint8_t chaddr[16];
+[v _chaddr `uc ~T0 @X0 -> 16 `i a ]
+"279
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 279:     uint8_t messageType=0;
+[v _messageType `uc ~T0 @X0 1 a ]
+[e = _messageType -> -> 0 `i `uc ]
+"281
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 281:     _Bool acceptOffers;
+[v _acceptOffers `a ~T0 @X0 1 a ]
+"282
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 282:     _Bool declineOffers;
+[v _declineOffers `a ~T0 @X0 1 a ]
+"283
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 283:     _Bool acceptNACK;
+[v _acceptNACK `a ~T0 @X0 1 a ]
+"284
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 284:     _Bool acceptACK;
+[v _acceptACK `a ~T0 @X0 1 a ]
+"286
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 286:     uint32_t siaddr;
+[v _siaddr `ul ~T0 @X0 1 a ]
+"291
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 291:     switch(dhcpState.rxClientState)
+[e $U 71  ]
+"292
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 292:     {
+{
+"293
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 293:         default:
+[e :U 72 ]
+"294
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 294:         case SELECTING:
+[e :U 73 ]
+"296
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 296:             acceptOffers = 1;
+[e = _acceptOffers -> -> 1 `i `a ]
+"297
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 297:             declineOffers = 0;
+[e = _declineOffers -> -> 0 `i `a ]
+"298
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 298:             acceptNACK = 0;
+[e = _acceptNACK -> -> 0 `i `a ]
+"299
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 299:             acceptACK = 0;
+[e = _acceptACK -> -> 0 `i `a ]
+"300
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 300:             break;
+[e $U 70  ]
+"301
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 301:         case REQUESTING:
+[e :U 74 ]
+"303
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 303:             acceptOffers = 0;
+[e = _acceptOffers -> -> 0 `i `a ]
+"304
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 304:             declineOffers = 1;
+[e = _declineOffers -> -> 1 `i `a ]
+"305
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 305:             acceptNACK = 1;
+[e = _acceptNACK -> -> 1 `i `a ]
+"306
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 306:             acceptACK = 1;
+[e = _acceptACK -> -> 1 `i `a ]
+"307
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 307:             break;
+[e $U 70  ]
+"308
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 308:         case RENEWLEASE:
+[e :U 75 ]
+"310
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 310:             acceptOffers = 0;
+[e = _acceptOffers -> -> 0 `i `a ]
+"311
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 311:             acceptNACK = 1;
+[e = _acceptNACK -> -> 1 `i `a ]
+"312
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 312:             acceptACK = 1;
+[e = _acceptACK -> -> 1 `i `a ]
+"313
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 313:             break;
+[e $U 70  ]
+"314
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 314:         case BOUND:
+[e :U 76 ]
+"316
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 316:             acceptOffers = 0;
+[e = _acceptOffers -> -> 0 `i `a ]
+"317
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 317:             acceptNACK = 0;
+[e = _acceptNACK -> -> 0 `i `a ]
+"318
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 318:             acceptACK = 0;
+[e = _acceptACK -> -> 0 `i `a ]
+"319
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 319:             break;
+[e $U 70  ]
+"320
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 320:     }
+}
+[e $U 70  ]
+[e :U 71 ]
+[e [\ -> . _dhcpState 0 `ui , $ -> . `E1253 0 `ui 73
+ , $ -> . `E1253 1 `ui 74
+ , $ -> . `E1253 2 `ui 75
+ , $ -> . `E1253 3 `ui 76
+ 72 ]
+[e :U 70 ]
+"322
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 322:     if(acceptOffers || declineOffers || acceptNACK || acceptACK)
+[e $ ! || || || != -> _acceptOffers `i -> 0 `i != -> _declineOffers `i -> 0 `i != -> _acceptNACK `i -> 0 `i != -> _acceptACK `i -> 0 `i 77  ]
+"323
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 323:     {
+{
+[v F1305 `S36 ~T0 @X0 1 s ]
+[i F1305
+:U ..
+:U ..
+"324
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 324:         dhcp_data_t localData = {0,0,0,0,0,0,0,0,0,3600,3600,0};
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+:U ..
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+..
+:U ..
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+..
+-> -> -> 0 `i `l `ul
+-> -> -> 0 `i `l `ul
+-> -> -> 3600 `i `l `ul
+-> -> -> 3600 `i `l `ul
+-> -> -> 0 `i `l `ul
+..
+..
+]
+[v _localData `S36 ~T0 @X0 1 a ]
+[e = _localData F1305 ]
+"325
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 325:         localData.xidValue = dhcpData.xidValue;
+[e = . _localData 6 . _dhcpData 6 ]
+"327
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 327:         if(length > 240)
+[e $ ! > -> _length `i -> 240 `i 78  ]
+"328
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 328:         {
+{
+"330
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 330:             if(0x0201 == ETH_Read16())
+[e $ ! == -> -> 513 `i `ui -> ( _ETH_Read16 ..  `ui 79  ]
+"331
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 331:             {
+{
+"332
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 332:                 if(0x06 == ETH_Read8())
+[e $ ! == -> 6 `i -> ( _ETH_Read8 ..  `i 80  ]
+"333
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 333:                 {
+{
+"334
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 334:                     ETH_Read8();
+[e ( _ETH_Read8 ..  ]
+"335
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 335:                     if(dhcpData.xidValue == ETH_Read32())
+[e $ ! == . _dhcpData 6 ( _ETH_Read32 ..  81  ]
+"336
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 336:                     {
+{
+"337
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 337:                         ETH_Read16();
+[e ( _ETH_Read16 ..  ]
+"338
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 338:                         ETH_Read16();
+[e ( _ETH_Read16 ..  ]
+"339
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 339:                         ETH_Read32();
+[e ( _ETH_Read32 ..  ]
+"340
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 340:                         localData.dhcpIPAddress = ETH_Read32();
+[e = . _localData 0 ( _ETH_Read32 ..  ]
+"341
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 341:                             if((localData.dhcpIPAddress != 0xFFFFFFFF) && (localData.dhcpIPAddress != 0x7F000001))
+[e $ ! && != . _localData 0 -> 4294967295 `ul != . _localData 0 -> -> 2130706433 `l `ul 82  ]
+"342
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 342:                             {
+{
+"343
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 343:                                 siaddr = ETH_Read32();
+[e = _siaddr ( _ETH_Read32 ..  ]
+"344
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 344:                                 if((siaddr != 0xFFFFFFFF) && (siaddr != 0x7F000001))
+[e $ ! && != _siaddr -> 4294967295 `ul != _siaddr -> -> 2130706433 `l `ul 83  ]
+"345
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 345:                                 {
+{
+"346
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 346:                         ETH_Read32();
+[e ( _ETH_Read32 ..  ]
+"347
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 347:                         ETH_ReadBlock(chaddr,sizeof(chaddr));
+[e ( _ETH_ReadBlock (2 , -> &U _chaddr `*v -> -> # _chaddr `ui `us ]
+"348
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 348:                         if(memcmp(chaddr, &hostMacAddress.s, 6)== 0 || memcmp(chaddr, &broadcastMAC.s, 6)== 0 || (strlen((char *)chaddr)== 0))
+[e $ ! || || == ( _memcmp (3 , , -> &U _chaddr `*Cv -> &U . _hostMacAddress 1 `*Cv -> -> 6 `i `ui -> 0 `i == ( _memcmp (3 , , -> &U _chaddr `*Cv -> &U . _broadcastMAC 1 `*Cv -> -> 6 `i `ui -> 0 `i == ( _strlen (1 -> -> &U _chaddr `*uc `*Cuc -> -> 0 `i `ui 84  ]
+"349
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 349:                         {
+{
+"350
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 350:                             ETH_Dump(64);
+[e ( _ETH_Dump (1 -> -> 64 `i `us ]
+"351
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 351:                             ETH_Dump(128);
+[e ( _ETH_Dump (1 -> -> 128 `i `us ]
+"352
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 352:                             if(ETH_Read32() == 0x63825363)
+[e $ ! == ( _ETH_Read32 ..  -> -> 1669485411 `l `ul 85  ]
+"353
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 353:                             {
+{
+"354
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 354:                                 length -= 240;
+[e =- _length -> -> 240 `i `s ]
+"355
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 355:                                 while(length>0)
+[e $U 86  ]
+[e :U 87 ]
+"356
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 356:                                 {
+{
+"358
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 358:                                     uint8_t option, optionLength;
+[v _option `uc ~T0 @X0 1 a ]
+[v _optionLength `uc ~T0 @X0 1 a ]
+"359
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 359:                                     option = ETH_Read8();
+[e = _option ( _ETH_Read8 ..  ]
+"360
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 360:                                     optionLength = ETH_Read8();
+[e = _optionLength ( _ETH_Read8 ..  ]
+"361
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 361:                                     length -= 2 + optionLength;
+[e =- _length -> + -> 2 `i -> _optionLength `i `s ]
+"362
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 362:                                     switch(option)
+[e $U 90  ]
+"363
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 363:                                     {
+{
+"364
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 364:                                         case 1:
+[e :U 91 ]
+"366
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 366:                                             localData.subnetMask = ETH_Read32();
+[e = . _localData 1 ( _ETH_Read32 ..  ]
+"367
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 367:                                             break;
+[e $U 89  ]
+"368
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 368:                                         case 3:
+[e :U 92 ]
+"370
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 370:                                             localData.routerAddress = ETH_Read32();
+[e = . _localData 2 ( _ETH_Read32 ..  ]
+"371
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 371:                                             break;
+[e $U 89  ]
+"372
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 372:                                         case 6:
+[e :U 93 ]
+"373
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 373:                                             {
+{
+"374
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 374:                                                 uint8_t count=0;
+[v _count `uc ~T0 @X0 1 a ]
+[e = _count -> -> 0 `i `uc ]
+"376
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 376:                                                 while(optionLength >= 4)
+[e $U 94  ]
+[e :U 95 ]
+"377
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 377:                                                 {
+{
+"378
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 378:                                                     uint32_t a = ETH_Read32();
+[v _a `ul ~T0 @X0 1 a ]
+[e = _a ( _ETH_Read32 ..  ]
+"379
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 379:                                                     if(count < 2)
+[e $ ! < -> _count `i -> 2 `i 97  ]
+"380
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 380:                                                         localData.dnsAddress[count++] = a;
+[e = *U + &U . _localData 3 * -> ++ _count -> -> 1 `i `uc `ux -> -> # *U &U . _localData 3 `ui `ux _a ]
+[e :U 97 ]
+"382
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 382:                                                     optionLength -= 4;
+[e =- _optionLength -> -> 4 `i `uc ]
+"383
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 383:                                                 }
+}
+[e :U 94 ]
+"376
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 376:                                                 while(optionLength >= 4)
+[e $ >= -> _optionLength `i -> 4 `i 95  ]
+[e :U 96 ]
+"384
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 384:                                             }
+}
+"385
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 385:                                             break;
+[e $U 89  ]
+"386
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 386:                                         case 42:
+[e :U 98 ]
+"387
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 387:                                             {
+{
+"388
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 388:                                                 uint8_t count=0;
+[v _count `uc ~T0 @X0 1 a ]
+[e = _count -> -> 0 `i `uc ]
+"390
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 390:                                                 while(optionLength >= 4)
+[e $U 99  ]
+[e :U 100 ]
+"391
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 391:                                                 {
+{
+"392
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 392:                                                     uint32_t a = ETH_Read32();
+[v _a `ul ~T0 @X0 1 a ]
+[e = _a ( _ETH_Read32 ..  ]
+"393
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 393:                                                     if(count < 2)
+[e $ ! < -> _count `i -> 2 `i 102  ]
+"394
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 394:                                                         localData.ntpAddress[count++] = a;
+[e = *U + &U . _localData 4 * -> ++ _count -> -> 1 `i `uc `ux -> -> # *U &U . _localData 4 `ui `ux _a ]
+[e :U 102 ]
+"396
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 396:                                                     optionLength -= 4;
+[e =- _optionLength -> -> 4 `i `uc ]
+"397
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 397:                                                 }
+}
+[e :U 99 ]
+"390
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 390:                                                 while(optionLength >= 4)
+[e $ >= -> _optionLength `i -> 4 `i 100  ]
+[e :U 101 ]
+"398
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 398:                                             }
+}
+"399
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 399:                                             break;
+[e $U 89  ]
+"400
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 400:                                         case 51:
+[e :U 103 ]
+"402
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 402:                                             if(optionLength >= 4)
+[e $ ! >= -> _optionLength `i -> 4 `i 104  ]
+"403
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 403:                                             {
+{
+"404
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 404:                                                 uint32_t origLeaseTime;
+[v _origLeaseTime `ul ~T0 @X0 1 a ]
+"406
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 406:                                                 origLeaseTime = ETH_Read32();
+[e = _origLeaseTime ( _ETH_Read32 ..  ]
+"408
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 408:                                                 localData.t1 = origLeaseTime >> 1;
+[e = . _localData 7 >> _origLeaseTime -> 1 `i ]
+"409
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 409:                                                 localData.t2 = localData.t1;
+[e = . _localData 8 . _localData 7 ]
+"410
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 410:                                                 origLeaseTime = localData.t1 >> 1;
+[e = _origLeaseTime >> . _localData 7 -> 1 `i ]
+"411
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 411:                                                 localData.t2 += origLeaseTime;
+[e =+ . _localData 8 _origLeaseTime ]
+"412
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 412:                                                 localData.t2 += origLeaseTime >> 1;
+[e =+ . _localData 8 >> _origLeaseTime -> 1 `i ]
+"414
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 414:                                                 optionLength -= 4;
+[e =- _optionLength -> -> 4 `i `uc ]
+"415
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 415:                                             }
+}
+[e :U 104 ]
+"416
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 416:                                             break;
+[e $U 89  ]
+"417
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 417:                                         case 54:
+[e :U 105 ]
+"419
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 419:                                             localData.dhcpServerIdentifier = ETH_Read32();
+[e = . _localData 9 ( _ETH_Read32 ..  ]
+"421
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 421:                                             optionLength -= 4;
+[e =- _optionLength -> -> 4 `i `uc ]
+"422
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 422:                                             break;
+[e $U 89  ]
+"423
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 423:                                         case 53:
+[e :U 106 ]
+"425
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 425:                                             messageType=ETH_Read8();
+[e = _messageType ( _ETH_Read8 ..  ]
+"426
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 426:                                             optionLength -=1;
+[e =- _optionLength -> -> 1 `i `uc ]
+"427
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 427:                                             break;
+[e $U 89  ]
+"428
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 428:                                         default:
+[e :U 107 ]
+"429
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 429:                                             ETH_Dump(optionLength);
+[e ( _ETH_Dump (1 -> _optionLength `us ]
+"430
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 430:                                             break;
+[e $U 89  ]
+"431
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 431:                                     }
+}
+[e $U 89  ]
+[e :U 90 ]
+[e [\ _option , $ -> 1 `i 91
+ , $ -> 3 `i 92
+ , $ -> 6 `i 93
+ , $ -> 42 `i 98
+ , $ -> 51 `i 103
+ , $ -> 54 `i 105
+ , $ -> 53 `i 106
+ 107 ]
+[e :U 89 ]
+"432
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 432:                                 }
+}
+[e :U 86 ]
+"355
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 355:                                 while(length>0)
+[e $ > -> _length `i -> 0 `i 87  ]
+[e :U 88 ]
+"433
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 433:                             }
+}
+[e $U 108  ]
+"434
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 434:                             else
+[e :U 85 ]
+"435
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 435:                             {
+{
+"437
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 437:                             }
+}
+[e :U 108 ]
+"438
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 438:                         }
+}
+[e $U 109  ]
+"439
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 439:                         else
+[e :U 84 ]
+"440
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 440:                         {
+{
+"442
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 442:                             return;
+[e $UE 69  ]
+"443
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 443:                         }
+}
+[e :U 109 ]
+"444
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 444:                                 }
+}
+[e $U 110  ]
+"445
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 445:                                 else
+[e :U 83 ]
+"446
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 446:                                 {
+{
+"448
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 448:                                 }
+}
+[e :U 110 ]
+"449
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 449:                             }
+}
+[e $U 111  ]
+"450
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 450:                             else
+[e :U 82 ]
+"451
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 451:                             {
+{
+"453
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 453:                             }
+}
+[e :U 111 ]
+"454
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 454:                     }
+}
+[e $U 112  ]
+"455
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 455:                     else
+[e :U 81 ]
+"456
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 456:                     {
+{
+"458
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 458:                     }
+}
+[e :U 112 ]
+"459
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 459:                 }
+}
+[e $U 113  ]
+"460
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 460:                 else
+[e :U 80 ]
+"461
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 461:                 {
+{
+"463
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 463:                 }
+}
+[e :U 113 ]
+"464
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 464:             }
+}
+[e $U 114  ]
+"465
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 465:             else
+[e :U 79 ]
+"466
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 466:             {
+{
+"468
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 468:             }
+}
+[e :U 114 ]
+"469
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 469:         }
+}
+[e $U 115  ]
+"470
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 470:         else
+[e :U 78 ]
+"471
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 471:         {
+{
+"473
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 473:         }
+}
+[e :U 115 ]
+"474
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 474:         switch(messageType)
+[e $U 117  ]
+"475
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 475:         {
+{
+"476
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 476:             case DHCP_OFFER:
+[e :U 118 ]
+"477
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 477:                 if(acceptOffers)
+[e $ ! != -> _acceptOffers `i -> 0 `i 119  ]
+"478
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 478:                 {
+{
+"479
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 479:                     dhcpData = localData;
+[e = _dhcpData _localData ]
+"480
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 480:                     sendDHCPREQUEST();
+[e ( _sendDHCPREQUEST ..  ]
+"481
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 481:                     dhcpState.rxClientState = REQUESTING;
+[e = . _dhcpState 0 . `E1253 1 ]
+"482
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 482:                 }
+}
+[e :U 119 ]
+"483
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 483:                 if(declineOffers)
+[e $ ! != -> _declineOffers `i -> 0 `i 120  ]
+"484
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 484:                 {
+{
+"485
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 485:                     sendDHCPDECLINE();
+[e ( _sendDHCPDECLINE ..  ]
+"486
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 486:                 }
+}
+[e :U 120 ]
+"487
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 487:                 break;
+[e $U 116  ]
+"488
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 488:             case DHCP_ACK:
+[e :U 121 ]
+"489
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 489:                 if(acceptACK)
+[e $ ! != -> _acceptACK `i -> 0 `i 122  ]
+"490
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 490:                 {
+{
+"491
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 491:                     dhcpData.t1 = localData.t1;
+[e = . _dhcpData 7 . _localData 7 ]
+"492
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 492:                     dhcpData.t2 = localData.t2;
+[e = . _dhcpData 8 . _localData 8 ]
+"493
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 493:                     do{ ip_database_info.ipv4_myAddress = dhcpData.dhcpIPAddress; } while(0);
+[e :U 125 ]
+{
+[e = . _ip_database_info 0 . _dhcpData 0 ]
+}
+[e :U 124 ]
+"494
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 494:                     do{ if(0 < 2) ip_database_info.ipv4_dns[0] = dhcpData.dnsAddress[0]; } while(0);
+[e :U 128 ]
+{
+[e $ ! < -> 0 `i -> 2 `i 129  ]
+[e = *U + &U . _ip_database_info 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _ip_database_info 1 `ui `ux *U + &U . _dhcpData 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _dhcpData 3 `ui `ux ]
+[e :U 129 ]
+}
+[e :U 127 ]
+"495
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 495:                     do{ if(1 < 2) ip_database_info.ipv4_dns[1] = dhcpData.dnsAddress[1]; } while(0);
+[e :U 132 ]
+{
+[e $ ! < -> 1 `i -> 2 `i 133  ]
+[e = *U + &U . _ip_database_info 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _ip_database_info 1 `ui `ux *U + &U . _dhcpData 3 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _dhcpData 3 `ui `ux ]
+[e :U 133 ]
+}
+[e :U 131 ]
+"496
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 496:                     do{ ip_database_info.ipv4_router = dhcpData.routerAddress; } while(0);
+[e :U 136 ]
+{
+[e = . _ip_database_info 3 . _dhcpData 2 ]
+}
+[e :U 135 ]
+"497
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 497:                     do{ ip_database_info.ipv4_gateway = dhcpData.gatewayAddress; } while(0);
+[e :U 139 ]
+{
+[e = . _ip_database_info 4 . _dhcpData 5 ]
+}
+[e :U 138 ]
+"498
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 498:                     do{ ip_database_info.ipv4_subnetMask = dhcpData.subnetMask; } while(0);
+[e :U 142 ]
+{
+[e = . _ip_database_info 2 . _dhcpData 1 ]
+}
+[e :U 141 ]
+"499
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 499:                     if(dhcpData.ntpAddress[0])
+[e $ ! != *U + &U . _dhcpData 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _dhcpData 4 `ui `ux -> -> -> 0 `i `l `ul 143  ]
+"500
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 500:                     {
+{
+"501
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 501:                         do{ if(0 < 2) ip_database_info.ipv4_ntpAddress[0] = dhcpData.ntpAddress[0]; } while(0);
+[e :U 146 ]
+{
+[e $ ! < -> 0 `i -> 2 `i 147  ]
+[e = *U + &U . _ip_database_info 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _ip_database_info 5 `ui `ux *U + &U . _dhcpData 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _dhcpData 4 `ui `ux ]
+[e :U 147 ]
+}
+[e :U 145 ]
+"502
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 502:                         if(dhcpData.ntpAddress[1])
+[e $ ! != *U + &U . _dhcpData 4 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _dhcpData 4 `ui `ux -> -> -> 0 `i `l `ul 148  ]
+"503
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 503:                             do{ if(1 < 2) ip_database_info.ipv4_ntpAddress[1] = dhcpData.ntpAddress[1]; } while(0);
+[e :U 151 ]
+{
+[e $ ! < -> 1 `i -> 2 `i 152  ]
+[e = *U + &U . _ip_database_info 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _ip_database_info 5 `ui `ux *U + &U . _dhcpData 4 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _dhcpData 4 `ui `ux ]
+[e :U 152 ]
+}
+[e :U 150 ]
+[e :U 148 ]
+"504
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 504:                     }
+}
+[e :U 143 ]
+"505
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 505:                     dhcpState.rxClientState = BOUND;
+[e = . _dhcpState 0 . `E1253 3 ]
+"506
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 506:                 }
+}
+[e :U 122 ]
+"507
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 507:                 break;
+[e $U 116  ]
+"508
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 508:             case DHCP_NACK:
+[e :U 153 ]
+"509
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 509:                 if(acceptNACK)
+[e $ ! != -> _acceptNACK `i -> 0 `i 154  ]
+"510
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 510:                 {
+{
+"511
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 511:                     dhcpData.t1 = 4;
+[e = . _dhcpData 7 -> -> -> 4 `i `l `ul ]
+"512
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 512:                     dhcpData.t2 = 2;
+[e = . _dhcpData 8 -> -> -> 2 `i `l `ul ]
+"513
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 513:                     dhcpState.rxClientState = SELECTING;
+[e = . _dhcpState 0 . `E1253 0 ]
+"514
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 514:                 }
+}
+[e :U 154 ]
+"515
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 515:                 break;
+[e $U 116  ]
+"516
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 516:             default:
+[e :U 155 ]
+"517
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 517:                 break;
+[e $U 116  ]
+"518
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 518:         }
+}
+[e $U 116  ]
+[e :U 117 ]
+[e [\ _messageType , $ . `E1236 1 118
+ , $ . `E1236 4 121
+ , $ . `E1236 5 153
+ 155 ]
+[e :U 116 ]
+"519
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 519:     }
+}
+[e $U 156  ]
+"520
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 520:     else
+[e :U 77 ]
+"521
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 521:     {
+{
+"523
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 523:     }
+}
+[e :U 156 ]
+"524
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 524: }
+[e :UE 69 ]
+}
+"526
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 526: void DHCP_WriteZeros(uint16_t length)
+[v _DHCP_WriteZeros `(v ~T0 @X0 1 ef1`us ]
+"527
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 527: {
+{
+[e :U _DHCP_WriteZeros ]
+"526
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 526: void DHCP_WriteZeros(uint16_t length)
+[v _length `us ~T0 @X0 1 r1 ]
+"527
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 527: {
+[f ]
+"528
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 528:     while(length--)
+[e $U 158  ]
+[e :U 159 ]
+"529
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 529:     {
+{
+"530
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 530:         ETH_Write8(0);
+[e ( _ETH_Write8 (1 -> -> 0 `i `uc ]
+"531
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 531:     }
+}
+[e :U 158 ]
+"528
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 528:     while(length--)
+[e $ != -> -- _length -> -> 1 `i `us `ui -> -> 0 `i `ui 159  ]
+[e :U 160 ]
+"532
+[; ;mcc_generated_files/TCPIPLibrary/dhcp_client.c: 532: }
+[e :UE 157 ]
+}
