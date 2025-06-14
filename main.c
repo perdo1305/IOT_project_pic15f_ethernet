@@ -144,23 +144,23 @@ void TCP_Client(void) {
             break;
 
         case SOCKET_CONNECTED:
-            // Check for incoming bytes
+            // Verificar se existem bytes recebidos
             rx_len = TCP_GetRxLength(&portTCB);
             if (rx_len > 0) {
-                // Get available incoming data
+                // Obter os dados recebidos disponíveis
                 rx_len = TCP_GetReceivedData(&portTCB);  // lê os dados recebidos
 
-                // Reuse the RX buffer
+                // Reutilizar o buffer RX
                 TCP_InsertRxBuffer(&portTCB, rxdata, sizeof(rxdata));
 
-                // Take whatever we receive through the socket, and send it
-                // through the USART
+                // Pegar tudo o que recebemos através do socket e enviar
+                // através da USART
                 for (int i = 0; i < rx_len; i++)
                     EUSART1_Write(rxdata[i]);
             }
 
             if (t_client >= socketTimeout) {
-                // Send a message every couple of seconds
+                // Enviar uma mensagem a cada dois segundos
                 if (TCP_SendDone(&portTCB)) {
                     socketTimeout = t_client + 2;
 
@@ -174,83 +174,90 @@ void TCP_Client(void) {
             break;
 
         case SOCKET_CLOSING:
-
+            // Remove o socket quando está a fechar
             TCP_SocketRemove(&portTCB);
             break;
 
         default:
-            // This should not happen
+            // Isto não deveria acontecer
             break;
     }
 }
 
 void main(void) {
-    // Initialize the device
+    // Inicializa o dispositivo
     SYSTEM_Initialize();
 
-    // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
-    // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts
-    // Use the following macros to:
-
-    // Enable the Global Interrupts
+    // Ativar as Interrupções Globais
     INTERRUPT_GlobalInterruptEnable();
 
-    // Disable the Global Interrupts
+    // Desativar as Interrupções Globais
     // INTERRUPT_GlobalInterruptDisable();
 
-    // Enable the Peripheral Interrupts
+    // Ativar as Interrupções Periféricas
     INTERRUPT_PeripheralInterruptEnable();
 
-    // Disable the Peripheral Interrupts
+    // Desativar as Interrupções Periféricas
     // INTERRUPT_PeripheralInterruptDisable();
 
     TMR0_SetInterruptHandler(my_tmr0_callback);
+    // Inicia o temporizador
     TMR0_StartTimer();
 
+    // Lê os valores dos canais ADC
     ReadADCChannels();
+    // Imprime mensagem de teste
     printf("ola\n\r");
 
     while (1) {
-        // Add your application code
+        // Código principal da aplicação
 
+        // Gere a rede e mantém as ligações ativas
         Network_Manage();
+        // Obtém o endereço IP atual
         ip = ipdb_getAddress();
+        // Verifica se o IP mudou ou se não há IP atribuído
         if ((ip == 0) || (old_ip != ip)) {
             old_ip = ip;
+            // Converte o IP para formato de string legível
             ip_str = makeIpv4AddresstoStr(ip);
         }
+        // Envia cada caractere do endereço IP através da EUSART
         for (int i = 0; i < 16; i++) {
             EUSART1_Write(ip_str[i]);
         }
 
+        // Envia caracteres de nova linha e retorno de carro
         EUSART1_Write('\n');
         EUSART1_Write('\r');
 
+        // Se tivermos um IP válido, executa o cliente TCP
         if (ip != 0) {
-            TCP_Client();  // chamada da função cliente
+            TCP_Client();  // Chamada da função cliente TCP
         }
-        // end while(1)
+        // Fim do ciclo while(1)
 
 #if print_adc
+        // Lê o canal ADC 0 em modo de sondagem
         ADCC_StartConversion(channel_ANA0);
-        while (!ADCC_IsConversionDone());  // Polling - wait until conversion is complete
+        while (!ADCC_IsConversionDone());  // Sondagem - espera até que a conversão esteja completa
         adc_value0 = ADCC_GetConversionResult();
 
-        // Read channel 1
+        // Lê o canal ADC 1
         ADCC_StartConversion(channel_ANA1);
-        while (!ADCC_IsConversionDone());  // Polling - wait until conversion is complete
+        while (!ADCC_IsConversionDone());  // Sondagem - espera até que a conversão esteja completa
         adc_value1 = ADCC_GetConversionResult();
 
-        // Read channel 2
+        // Lê o canal ADC 2
         ADCC_StartConversion(channel_ANA2);
-        while (!ADCC_IsConversionDone());  // Polling - wait until conversion is complete
+        while (!ADCC_IsConversionDone());  // Sondagem - espera até que a conversão esteja completa
         adc_value2 = ADCC_GetConversionResult();
 
-        // Print ADC values - use this if EUSART is set up for printf
+        // Imprime os valores ADC - usar isto se a EUSART estiver configurada para printf
         printf("ADC0: %u, ADC1: %u, ADC2: %u\r\n", adc_value0, adc_value1, adc_value2);
 #endif
     }
 }
 /**
- End of File
+ Fim do Ficheiro
 */
